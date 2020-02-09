@@ -21,4 +21,13 @@ public class Player {
     public void onLoot(int gold) {
 
     }
+
+    // Getters & Setters
+    public int getHealth() {
+        return this.health;
+    }
+
+    public void setHealth(int newHealth) {
+        health = newHealth;
+    }
 }
