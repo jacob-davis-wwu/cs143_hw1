@@ -9,6 +9,7 @@ public class Player {
     public Player(String playerClass) {
         playerClass = playerClass.toUpperCase();
         this.playerClass = playerClass;
+        this.gold = 0;
 
         if ( playerClass == "WARRIOR" ) {
             health = 100;
