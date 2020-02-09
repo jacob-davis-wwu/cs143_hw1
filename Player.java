@@ -6,6 +6,21 @@ public class Player {
     private String playerClass;
     private double lootModifier;
 
+    public Player(String playerClass) {
+        playerClass = playerClass.toUpperCase();
+        this.playerClass = playerClass;
+
+        if ( playerClass == "WARRIOR" ) {
+            health = 100;
+            damage = 15;
+            lootModifier = 1;
+        } else if (playerClass == "THIEF") {
+            health = 70;
+            damage = 10;
+            lootModifier = 1.2;
+        }
+    }
+
     public void attack(Monster target) {
 
     }
