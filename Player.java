@@ -30,4 +30,20 @@ public class Player {
     public void setHealth(int newHealth) {
         health = newHealth;
     }
+
+    public int getGold() {
+        return this.gold;
+    }
+
+    public void setGold(int newGold) {
+        health = newGold;
+    }
+
+    public String getClass() {
+        return this.playerClass
+    }
+
+    public void setClass(String className) {
+        this.playerClass = className
+    }
 }
