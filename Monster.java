@@ -44,7 +44,7 @@ public class Monster {
     }
 
     public void onHit(int damage) {
-    	this.health -= damage;
+    	this.health -= randDamage(damage);
     }
     public String toString() {
     	return this.name;
@@ -53,4 +53,9 @@ public class Monster {
     	Monster orc1 = new Monster("Orc");
     	System.out.println(orc1);
     }
+    public int randDamage (int range) {
+    	int value = (int)((Math.random() * range) + 1);
+    	return value;
+    }
+    
 }
