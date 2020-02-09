@@ -22,7 +22,8 @@ public class Player {
     }
 
     public void attack(Monster target) {
-
+        // calls monster <target>'s onHit method for the players damage
+        target.onHit(this.damage);
     }
 
     public void onHit(int damage) {
