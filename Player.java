@@ -11,15 +11,19 @@ public class Player {
     }
 
     public void onHit(int damage) {
+        // decreases player health by (damage>
+        this.health -= damage;
 
     }
 
     public void onHeal(int health) {
-
+        // increases player health by <health>
+        this.health += health;
     }
 
     public void onLoot(int gold) {
-
+        // increases player gold by <gold>
+        this.gold += gold;
     }
 
     // Getters & Setters
@@ -39,11 +43,11 @@ public class Player {
         health = newGold;
     }
 
-    public String getClass() {
-        return this.playerClass
+    public String getPlayerClass() {
+        return this.playerClass;
     }
 
-    public void setClass(String className) {
-        this.playerClass = className
+    public void setPlayerClass(String className) {
+        this.playerClass = className;
     }
 }
