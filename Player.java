@@ -11,11 +11,11 @@ public class Player {
         this.playerClass = playerClass;
         this.gold = 0;
 
-        if ( playerClass == "WARRIOR" ) {
+        if ( playerClass.equalsIgnoreCase("w")){
             health = 100;
             damage = 15;
             lootModifier = 1;
-        } else if (playerClass == "THIEF") {
+        } else if (playerClass.equalsIgnoreCase("t")){
             health = 70;
             damage = 10;
             lootModifier = 1.2;

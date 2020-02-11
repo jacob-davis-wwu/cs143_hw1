@@ -12,9 +12,9 @@ public class Messages {
     private static final String LOSE = "You died!";
     private static final String OLD_ROOM = "You have already visited this room.";
     private static final String OPEN = "You open a door and move though...";
-    private static final String BAR = "======================================================================================";
+    private static final String BAR = "====================================";
     private static final String CLASS_SELECT = "Select your class:\n[W]arrior\n[T]hief";
-    private static final String DOOR_SELECT = "Select a door:\n[W] Up\n[A] Left\n [S]Down\n[D] Right";
+    private static final String DOOR_SELECT = "Select a door:\n[W] Up\n[A] Left\n[S]Down\n[D] Right";
     private static final String ACTION_SELECT = "Select an action:\n[1] Attack\n[2] Run";
 
     // Simple return functions
@@ -78,11 +78,11 @@ public class Messages {
     }
 
     public String playerHitMsg(String monsterType, int damage) {
-        return "You hit the " + monsterType + " for " + damage " damage!";
+        return "You hit the " + monsterType + " for " + damage +" damage!";
     }
 
     public String playerEscapeMsg(String monsterType, int damage) {
-        return "The " + monsterType + " hits you for " + damage " damage as you escape!";
+        return ("The " + monsterType + " hits you for " + damage +" damage as you escape!");
     }
 
     public String monsterDeathMsg(String monsterType) {
