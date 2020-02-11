@@ -5,3 +5,4 @@ cs145 group 34
 Randomize monster damage
 
 ## Done:
+DungeonGame takes input for player class
