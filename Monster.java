@@ -11,6 +11,12 @@ public class Monster {
     private String monsterType;
     private String name;
 
+    
+    public Monster(){
+        this.health = 0;
+	this.damage = 0;
+	this.name = "Null";
+    }
     public Monster(String monsterVar) {
     	monsterVar.toUpperCase();
     	if(monsterVar.equals("ORC")) {

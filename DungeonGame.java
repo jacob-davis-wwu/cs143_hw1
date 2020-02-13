@@ -83,5 +83,11 @@ public class DungeonGame {
 		
 
 	}
+	//Creates a random Monster
+	public static Monster getMonster(){
+		int x = Math.random() * 4;
+		String[] monsters = new String[]("Goblin","Orc","Deneke","Zombie");
+		Monster m = new Monster(monsters[x]);
+	}
 	 
 }
