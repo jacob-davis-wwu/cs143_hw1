@@ -1,20 +1,36 @@
+import java.util.*;
+import java.util.Random; 
 
 public class Room {
     private boolean visited;
     private String roomType;
+    private int heal;
+    private int gold;
 
-    public Room() {
-    	int randInt = (int)(Math.random() * 3);
+
+    public Room(String roomT) {
     	visited = false;
-    	if(randInt == 0) {
-    		this.roomType = "Gold";
-    	}
-    	else if(randInt == 1) {
-    		this.roomType = "Heal";
-    	}
-    	else {
-    		this.roomType = "Monster";
-    	}
+		Random rand= new Random();
+		int x= rand.nextInt(16);
+		System.out.println("here");
+
+		if(roomT.equals("Gold")) {
+			
+			this.heal = 0;
+			this.gold=x;
+			this.roomType=("Gold");
+
+		}else if(roomT.equals("Heal")){
+			this.heal = x;
+			this.gold = 0;
+			this.roomType = "Heal";
+
+		}else if(roomT.equals("Monster")) {
+			this.heal = 0;
+			this.gold = 0;
+			this.roomType = "Monster";
+		}
+
     }
     public void enter(Player player) {
     	visited = true;
@@ -22,5 +38,11 @@ public class Room {
 
     public boolean hasVisited() {
         return this.visited;
+    }
+    public int getHeal() {
+        return this.heal;
+    }
+    public int getGold() {
+        return this.gold;
     }
 }
