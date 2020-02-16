@@ -4,7 +4,7 @@ public class Room {
     private String roomType;
 
     public Room() {
-    	int randInt = (int)(Math.random() * 3);
+    	int randInt = (int) Math.floor(Math.random() * 3);
     	visited = false;
     	if(randInt == 0) {
     		this.roomType = "Gold";
@@ -16,7 +16,7 @@ public class Room {
     		this.roomType = "Monster";
     	}
     }
-    public void enter(Player player) {
+    public void enter() {
     	visited = true;
     }
 
