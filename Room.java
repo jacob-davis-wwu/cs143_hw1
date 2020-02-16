@@ -7,8 +7,13 @@ public class Room {
     private int heal;
     private int gold;
 
+<<<<<<< HEAD
 
     public Room(String roomT) {
+=======
+    public Room() {
+    	int randInt = (int) Math.floor(Math.random() * 3);
+>>>>>>> 9ae27940dd2cae126d2482665fe9b4cdebc3520f
     	visited = false;
 		Random rand= new Random();
 		int x= rand.nextInt(16);
@@ -32,7 +37,7 @@ public class Room {
 		}
 
     }
-    public void enter(Player player) {
+    public void enter() {
     	visited = true;
     }
 
