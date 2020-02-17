@@ -42,6 +42,12 @@ public class Player {
     public void onHeal(int health) {
         // increases player health by <health>
         this.health += health;
+        // Max health for each class
+        if ( playerClass.equalsIgnoreCase("w") && health > 100){
+            health = 100;
+        } else if (playerClass.equalsIgnoreCase("t") && health > 70){
+            health = 70;
+        }
     }
 
     public void onLoot(int gold) {

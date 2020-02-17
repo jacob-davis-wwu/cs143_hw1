@@ -5,6 +5,8 @@ cs145 group 34
 (nothing...?)
 
 ## Done:
+Health can no longer go above max for class
+
 Take array size as command line argument
 
 DungeonGame takes input for player class
