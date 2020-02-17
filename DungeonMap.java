@@ -10,11 +10,30 @@ public class DungeonMap {
     public DungeonMap (int rows, int columns, Player playerV){
         this.rows = rows;
         this.cols = columns;
+        Room[][] rooms = new Room[rows][cols];
     	for (int i = 0; i < rows; i++) {
     		for (int j = 0; j < columns; j++){
     			rooms[i][j] = new Room();
     		}
     	}
+        this.rooms = rooms;
+
+        String pClass = playerV.getPlayerClass();
+        if (pClass.equalsIgnoreCase("t")) {
+            isThief = true;
+        }
+    }
+
+    public DungeonMap (Player playerV) {
+        this.rows = 10;
+        this.cols = 10;
+        Room[][] rooms = new Room[rows][cols];
+    	for (int i = 0; i < rows; i++) {
+    		for (int j = 0; j < cols; j++){
+    			rooms[i][j] = new Room();
+    		}
+    	}
+        this.rooms = rooms;
 
         String pClass = playerV.getPlayerClass();
         if (pClass.equalsIgnoreCase("t")) {
@@ -27,25 +46,8 @@ public class DungeonMap {
     // possible to move in the desired direction
 
     public boolean moveUp() {
-        if ( playerLocation[1] != 0 ) {
-            playerLocation[1] -= 1;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean moveDown() {
-        if ( playerLocation[1] != rows - 1 ) {
-            playerLocation[1] += 1;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean moveLeft() {
         if ( playerLocation[0] != 0 ) {
+            rooms[playerLocation[0]][playerLocation[1]].enter();
             playerLocation[0] -= 1;
             return true;
         } else {
@@ -53,9 +55,30 @@ public class DungeonMap {
         }
     }
 
-    public boolean moveRight() {
-        if ( playerLocation[0] != cols - 1 ) {
+    public boolean moveDown() {
+        if ( playerLocation[0] != rows - 1 ) {
+            rooms[playerLocation[0]][playerLocation[1]].enter();
             playerLocation[0] += 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean moveLeft() {
+        if ( playerLocation[1] != 0 ) {
+            rooms[playerLocation[0]][playerLocation[1]].enter();
+            playerLocation[1] -= 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean moveRight() {
+        if ( playerLocation[1] != cols - 1 ) {
+            rooms[playerLocation[0]][playerLocation[1]].enter();
+            playerLocation[1] += 1;
             return true;
         } else {
             return false;
@@ -66,9 +89,9 @@ public class DungeonMap {
 
     public void print() {
         printWall(this.cols);
-        for (i=0; i < rows; i++) {
+        for (int i=0; i < rows; i++) {
             String row = "|";
-            for (j=0; j < cols; j++) {
+            for (int j=0; j < cols; j++) {
                 if ( ( playerLocation[0] == i) && ( playerLocation[1] == j ) ) {
                     if (this.isThief) {
                         row = row + "T";
@@ -78,19 +101,27 @@ public class DungeonMap {
                 } else if (rooms[i][j].hasVisited()) {
                     row = row + "*";
                 } else {
-                    row = row = " ";
+                    row = row + " ";
                 }
             }
             row = row + "|";
+            System.out.println(row);
         }
         printWall(this.cols);
     }
 
     public void printWall(int cols) {
         String wall = "+";
-        for(i=0; i < cols; i++ ) {
+        for(int i=0; i < cols; i++ ) {
            wall = wall + "-";
         }
         System.out.println(wall + "+");
+    }
+
+    public int getPlayerX() {
+        return playerLocation[0];
+    }
+    public int getPlayerY() {
+        return playerLocation[1];
     }
 }
