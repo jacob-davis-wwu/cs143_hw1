@@ -2,9 +2,11 @@
 cs145 group 34
 
 ## To do:
-Take array size as command line argument
+(nothing...?)
 
 ## Done:
+Take array size as command line argument
+
 DungeonGame takes input for player class
 
 Map print method

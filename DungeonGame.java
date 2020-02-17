@@ -6,7 +6,7 @@ public class DungeonGame {
     private Messages words = new Messages();
     private Random rand = new Random();
 
-    public void play() {
+    public void play(int nRows, int nCols) {
 		System.out.println(words.getIntro());
 
 		//player selects class under validateClass method
@@ -15,7 +15,7 @@ public class DungeonGame {
 
 		//setting the players stats bassed on class
 		player= new Player(playerClass);
-        map = new DungeonMap(player);
+        map = new DungeonMap(nRows,nCols,player);
 
 		//user playing the actual game
 		while(true){
