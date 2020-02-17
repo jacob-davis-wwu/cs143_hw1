@@ -124,4 +124,10 @@ public class DungeonMap {
     public int getPlayerY() {
         return playerLocation[1];
     }
+
+    public boolean hasVisited() {
+        if (rooms[playerLocation[0]][playerLocation[1]].hasVisited() )
+            { return true;}
+            else { return false;}
+    }
 }

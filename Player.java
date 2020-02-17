@@ -5,11 +5,13 @@ public class Player {
     private int damage;
     private String playerClass;
     private double lootModifier;
+    private boolean isAlive;
 
     public Player(String playerClass) {
         playerClass = playerClass.toUpperCase();
         this.playerClass = playerClass;
         this.gold = 0;
+        this.isAlive = true;
 
         if ( playerClass.equalsIgnoreCase("w")){
             health = 100;
@@ -22,15 +24,19 @@ public class Player {
         }
     }
 
-    public void attack(Monster target) {
+    public int attack(Monster target) {
         // calls monster <target>'s onHit method for the players damage
         target.onHit(this.damage);
+        return this.damage;
     }
 
     public void onHit(int damage) {
         // decreases player health by (damage>
         this.health -= damage;
-
+        if (this.health <=0) {
+            this.isAlive = false;
+            this.health = 0;
+        }
     }
 
     public void onHeal(int health) {
@@ -66,5 +72,9 @@ public class Player {
 
     public void setPlayerClass(String className) {
         this.playerClass = className;
+    }
+
+    public boolean isAlive() {
+        if (this.isAlive) { return true; } else { return false; }
     }
 }
