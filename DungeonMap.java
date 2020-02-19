@@ -1,5 +1,6 @@
 
 public class DungeonMap {
+	//Variable Initialization
     private Room[][] rooms;
     private Player player;
     private int[] playerLocation = {0,0};
@@ -7,6 +8,8 @@ public class DungeonMap {
     private int cols;
     private boolean isThief = false;
 
+    //Constructor given rows and columns, else it is identical to the basic
+    //constructor.
     public DungeonMap (int rows, int columns, Player playerV){
         this.rows = rows;
         this.cols = columns;
@@ -23,7 +26,10 @@ public class DungeonMap {
             isThief = true;
         }
     }
-
+    
+    //This is the constructor for the DungeonMap class
+    //Sets the rows and columns to a value of 10
+    //Creates a double array of rooms
     public DungeonMap (Player playerV) {
         this.rows = 10;
         this.cols = 10;
@@ -45,6 +51,7 @@ public class DungeonMap {
     // Each movement method returns a boolean based on whether or not it was
     // possible to move in the desired direction
 
+    //Moves the player up on the map
     public boolean moveUp() {
         if ( playerLocation[0] != 0 ) {
             rooms[playerLocation[0]][playerLocation[1]].enter();
@@ -54,7 +61,8 @@ public class DungeonMap {
             return false;
         }
     }
-
+    
+    //Moves the player down on the map
     public boolean moveDown() {
         if ( playerLocation[0] != rows - 1 ) {
             rooms[playerLocation[0]][playerLocation[1]].enter();
@@ -64,7 +72,7 @@ public class DungeonMap {
             return false;
         }
     }
-
+    //Moves the player left on the map
     public boolean moveLeft() {
         if ( playerLocation[1] != 0 ) {
             rooms[playerLocation[0]][playerLocation[1]].enter();
@@ -74,7 +82,8 @@ public class DungeonMap {
             return false;
         }
     }
-
+    
+    //Moves the player right on the map
     public boolean moveRight() {
         if ( playerLocation[1] != cols - 1 ) {
             rooms[playerLocation[0]][playerLocation[1]].enter();
